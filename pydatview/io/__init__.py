@@ -69,6 +69,7 @@ def fileFormats(userpath=None, ignoreErrors=False, verbose=False):
     from .raawmat_file            import RAAWMatFile
     from .rosco_discon_file       import ROSCODISCONFile
     from .rosco_performance_file  import ROSCOPerformanceFile
+    from .sima_h5 import SimaH5
     priorities = []
     formats = []
     def addFormat(priority, fmt):
@@ -110,6 +111,7 @@ def fileFormats(userpath=None, ignoreErrors=False, verbose=False):
     addFormat(60, FileFormat(PickleFile))
     addFormat(70, FileFormat(CactusFile))
     addFormat(70, FileFormat(RAAWMatFile))
+    addFormat(80, FileFormat(SimaH5))
 
     # --- User defined formats from user path
     UserClasses, UserPaths, UserModules, UserModuleNames, errors = userFileClasses(userpath, ignoreErrors, verbose=verbose)
