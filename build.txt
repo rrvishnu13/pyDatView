@@ -1,0 +1,1 @@
+uv run python -m nuitka --standalone --follow-imports --assume-yes-for-downloads --output-dir=dist pyDatView.py

@@ -1,7 +1,7 @@
 import numpy as np
 import h5py
 import pandas as pd
-from file import File
+from .file import File
 
 
 class SimaH5(File):
@@ -22,7 +22,7 @@ class SimaH5(File):
 
     def _read(self):
         """ use pandas read_parquet function to read parquet file"""
-        self.data=h52pq(self.filename)
+        self.data=h52pd(self.filename)
 
     def _write(self):
         """ use pandas DataFrame.to_parquet method to write parquet file """
@@ -123,7 +123,7 @@ def interp_series(t_common, ts_meta, f):
     return s_interp
 
 
-def h52pq(h5File):
+def h52pd(h5File):
 
     with h5py.File(h5File, "r") as f:
         
